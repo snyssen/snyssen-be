@@ -1,10 +1,10 @@
 <nb-layout>
 
-  <nb-layout-header fixed>
-  Header
-  </nb-layout-header>
+  <nb-sidebar [state]="sidebarState">Sidebar</nb-sidebar>
 
-  <nb-sidebar state="compacted">Sidebar</nb-sidebar>
+  <nb-layout-header subheader>
+    <button nbButton ghost (click)="toggleSidebar()"><nb-icon icon="menu-outline"></nb-icon></button>
+  </nb-layout-header>
 
   <nb-layout-column>
     <router-outlet></router-outlet>

@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'snyssen-be';
+  sidebarState: 'expanded' | 'collapsed' | 'compacted' = 'collapsed';
+
+  toggleSidebar(): void {
+    if (this.sidebarState === 'collapsed') {
+      this.sidebarState = 'expanded';
+    } else {
+      this.sidebarState = 'collapsed';
+    }
+  }
 }

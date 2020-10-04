@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { StartPageComponent } from './start-page/start-page.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'start-page',
+    component: StartPageComponent
   },
   {
     path: '**',
@@ -14,6 +19,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  declarations: [
+    HomeComponent,
+    StartPageComponent
+  ],
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
