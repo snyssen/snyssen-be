@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "snyssen-be"
+    }
+  },
+  "defaultProject": "snyssen-be",
+  "cli": {
+    "analytics": "d6c113ac-23e0-491a-ae9c-a338363126c4"
+  }
 }
