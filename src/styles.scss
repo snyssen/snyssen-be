@@ -7,6 +7,22 @@
 };
 /* You can add global styles to this file, and also import other style files */
 
+.fill-container {
+  height: 100%;
+  width: 100%;
+}
+
 .layout-container {
-  background-image: url('/assets/images/backgrounds/looking_up.png');
+  background-image: url('assets/images/backgrounds/retro_gaming.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.nb-theme-dark nb-sidebar {
+  backdrop-filter: blur(10px);
+}
+
+// FIXME : change this setting using the EVA design system
+.nb-theme-dark nb-layout .layout .layout-container nb-sidebar.fixed, .nb-theme-dark nb-layout .layout .layout-container nb-sidebar .main-container-fixed {
+  top: 0;
 }

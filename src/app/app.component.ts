@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NbMenuItem } from '@nebular/theme';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +8,28 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'snyssen-be';
-  sidebarState: 'expanded' | 'collapsed' | 'compacted' = 'collapsed';
+  sidebarState: 'expanded' | 'collapsed' | 'compacted' = 'compacted';
+  navMenuItems: NbMenuItem[] = [
+    {
+      title: 'Home',
+      icon: 'home',
+      link: '/',
+      pathMatch: 'full'
+    },
+    {
+      title: 'Start',
+      icon: 'grid-outline',
+      link: 'start-page',
+      pathMatch: 'full'
+    },
+  ];
+  pageMenuItems: NbMenuItem[] = [];
 
   toggleSidebar(): void {
-    if (this.sidebarState === 'collapsed') {
+    if (this.sidebarState === 'compacted') {
       this.sidebarState = 'expanded';
     } else {
-      this.sidebarState = 'collapsed';
+      this.sidebarState = 'compacted';
     }
   }
 }

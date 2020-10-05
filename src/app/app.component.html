@@ -1,11 +1,20 @@
 <nb-layout>
 
-  <nb-sidebar [state]="sidebarState">Sidebar</nb-sidebar>
-
+  <nb-sidebar [state]="sidebarState">
+    <!--<nb-menu [items]="navMenuItems"></nb-menu>-->
+    <div class="fill-container" fxLayout="column" fxLayoutAlign="start stretch">
+      <div fxFlex fxLayout="column" fxLayoutAlign="start stretch">
+        <nb-menu [items]="navMenuItems"></nb-menu>
+      </div>
+      <nb-menu [items]="pageMenuItems"></nb-menu>
+      <div fxFlex></div>
+    </div>
+  </nb-sidebar>
+<!--
   <nb-layout-header subheader>
-    <button nbButton ghost (click)="toggleSidebar()"><nb-icon icon="menu-outline"></nb-icon></button>
+    <button nbButton outline (click)="toggleSidebar()"><nb-icon icon="menu-outline"></nb-icon></button>
   </nb-layout-header>
-
+-->
   <nb-layout-column>
     <router-outlet></router-outlet>
   </nb-layout-column>
