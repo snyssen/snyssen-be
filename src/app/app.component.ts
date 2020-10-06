@@ -1,29 +1,43 @@
-import { Component } from '@angular/core';
-import { NbMenuItem } from '@nebular/theme';
+import { Component, OnInit } from '@angular/core';
+import { NbMenuItem, NbThemeService } from '@nebular/theme';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'snyssen-be';
   sidebarState: 'expanded' | 'collapsed' | 'compacted' = 'compacted';
+  navMenuPosition: 'top' | 'left' | 'right' | 'bottom' = 'left'
   navMenuItems: NbMenuItem[] = [
     {
       title: 'Home',
       icon: 'home',
-      link: '/',
-      pathMatch: 'full'
+      link: '/'
     },
     {
       title: 'Start',
       icon: 'grid-outline',
-      link: 'start-page',
-      pathMatch: 'full'
+      link: 'start-page'
     },
   ];
   pageMenuItems: NbMenuItem[] = [];
+
+  constructor(private themeService: NbThemeService) {
+
+  }
+
+  ngOnInit(): void {
+    this.themeService.onMediaQueryChange().subscribe(([previous, current]) => {
+      // if small screen
+      if (['xs', 'is', 'sm', 'md'].includes(current.name)) {
+        this.navMenuPosition = 'bottom';
+      } else {
+        this.navMenuPosition = 'left';
+      }
+    });
+  }
 
   toggleSidebar(): void {
     if (this.sidebarState === 'compacted') {

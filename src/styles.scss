@@ -18,11 +18,7 @@
   background-attachment: fixed;
   background-size: cover;
 }
-.nb-theme-dark nb-sidebar {
+.nb-theme-dark nb-sidebar,
+.nb-theme-dark nb-layout-footer {
   backdrop-filter: blur(10px);
-}
-
-// FIXME : change this setting using the EVA design system
-.nb-theme-dark nb-layout .layout .layout-container nb-sidebar.fixed, .nb-theme-dark nb-layout .layout .layout-container nb-sidebar .main-container-fixed {
-  top: 0;
 }

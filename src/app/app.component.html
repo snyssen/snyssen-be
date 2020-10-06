@@ -1,7 +1,7 @@
 <nb-layout>
 
-  <nb-sidebar [state]="sidebarState">
-    <!--<nb-menu [items]="navMenuItems"></nb-menu>-->
+  <nb-sidebar *ngIf="navMenuPosition === 'left'" [state]="sidebarState">
+    <!-- nav menu on top, action menu in the middle -->
     <div class="fill-container" fxLayout="column" fxLayoutAlign="start stretch">
       <div fxFlex fxLayout="column" fxLayoutAlign="start stretch">
         <nb-menu [items]="navMenuItems"></nb-menu>
@@ -10,13 +10,19 @@
       <div fxFlex></div>
     </div>
   </nb-sidebar>
-<!--
-  <nb-layout-header subheader>
-    <button nbButton outline (click)="toggleSidebar()"><nb-icon icon="menu-outline"></nb-icon></button>
-  </nb-layout-header>
--->
+
   <nb-layout-column>
     <router-outlet></router-outlet>
   </nb-layout-column>
+
+  <nb-layout-footer *ngIf="navMenuPosition === 'bottom'" >
+    <nb-actions size="small">
+      <nb-action *ngFor="let navItem of navMenuItems"
+        [icon]="navItem.icon"
+        [link]="navItem.link"
+        [href]="navItem.url">
+      </nb-action>
+    </nb-actions>
+  </nb-layout-footer>
 
 </nb-layout>
