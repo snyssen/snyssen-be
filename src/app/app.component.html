@@ -1,13 +1,28 @@
 <nb-layout>
 
-  <nb-layout-header fixed>
-  Header
-  </nb-layout-header>
-
-  <nb-sidebar state="compacted">Sidebar</nb-sidebar>
+  <nb-sidebar *ngIf="navMenuPosition === 'left'" [state]="sidebarState">
+    <!-- nav menu on top, action menu in the middle -->
+    <div class="fill-container" fxLayout="column" fxLayoutAlign="start stretch">
+      <div fxFlex fxLayout="column" fxLayoutAlign="start stretch">
+        <nb-menu [items]="navMenuItems"></nb-menu>
+      </div>
+      <nb-menu [items]="pageMenuItems"></nb-menu>
+      <div fxFlex></div>
+    </div>
+  </nb-sidebar>
 
   <nb-layout-column>
     <router-outlet></router-outlet>
   </nb-layout-column>
+
+  <nb-layout-footer *ngIf="navMenuPosition === 'bottom'" >
+    <nb-actions size="small">
+      <nb-action *ngFor="let navItem of navMenuItems"
+        [icon]="navItem.icon"
+        [link]="navItem.link"
+        [href]="navItem.url">
+      </nb-action>
+    </nb-actions>
+  </nb-layout-footer>
 
 </nb-layout>

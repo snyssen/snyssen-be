@@ -4,25 +4,42 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbSidebarService } from '@nebular/theme';
+import { NbThemeModule,
+  NbLayoutModule,
+  NbSidebarModule,
+  NbSidebarService,
+  NbIconModule,
+  NbButtonModule,
+  NbMenuModule,
+  NbMenuService,
+  NbThemeService, NbActionsModule
+} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { HomeComponent } from './home/home.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
     NbThemeModule.forRoot({ name: 'dark' }),
     NbLayoutModule,
     NbEvaIconsModule,
-    NbSidebarModule
+    NbSidebarModule,
+    NbIconModule,
+    NbButtonModule,
+    NbMenuModule.forRoot(),
+    NbActionsModule
   ],
-  providers: [NbSidebarService],
+  providers: [
+    NbSidebarService,
+    NbMenuService,
+    NbThemeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
