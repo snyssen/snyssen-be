@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Routes, RouterModule } from '@angular/router';
 import { ClockModule } from './components/clock/clock.module';
+import { LinksListModule } from './components/links-list/links-list.module';
 import { SearchBarModule } from './components/search-bar/search-bar.module';
 import { WeatherModule } from './components/weather/weather.module';
 import { HomeComponent } from './home/home.component';
@@ -32,7 +33,8 @@ const routes: Routes = [
     FlexLayoutModule,
     ClockModule,
     WeatherModule,
-    SearchBarModule
+    SearchBarModule,
+    LinksListModule
   ],
   exports: [RouterModule]
 })

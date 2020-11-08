@@ -51,12 +51,14 @@ $nb-themes: nb-register-theme((
   sidebar-background-color: #222b4500, // transparent background
   footer-background-color: #222b4500, // transparent background
   //sidebar-shadow: none
+  card-background-color: #222b4500, // transparent background
 
 ), dark, dark);
 
 /* Theme specific stylings that can't make it into the default configuration */
 
 .nb-theme-dark nb-sidebar,
-.nb-theme-dark nb-layout-footer {
+.nb-theme-dark nb-layout-footer,
+.nb-theme-dark nb-card {
   backdrop-filter: blur(10px);
 }
