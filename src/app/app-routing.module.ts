@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { Routes, RouterModule } from '@angular/router';
 import { ClockModule } from './components/clock/clock.module';
+import { WeatherModule } from './components/weather/weather.module';
 import { HomeComponent } from './home/home.component';
 import { StartPageComponent } from './start-page/start-page.component';
 
@@ -26,7 +28,9 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forRoot(routes),
-    ClockModule
+    FlexLayoutModule,
+    ClockModule,
+    WeatherModule
   ],
   exports: [RouterModule]
 })
