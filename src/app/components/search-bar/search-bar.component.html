@@ -1,0 +1,8 @@
+<nb-form-field>
+    <button nbPrefix nbButton ghost (click)="search()">
+        <nb-icon icon="search-outline" pack="eva"></nb-icon>
+    </button>
+    <input type="text" nbInput fullWidth shape="round" 
+        placeholder="Search" [(ngModel)]="searchTerms"
+        (keyup.enter)="search()">
+</nb-form-field>
