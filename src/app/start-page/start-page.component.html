@@ -8,15 +8,9 @@
         <sny-search-bar></sny-search-bar>
     </div>
     <div class="cards-grid">
-        <sny-links-list></sny-links-list>
-        <sny-links-list></sny-links-list>
-        <sny-links-list></sny-links-list>
-        <sny-links-list></sny-links-list>
-        <sny-links-list></sny-links-list>
-        <sny-links-list></sny-links-list>
-        <sny-links-list></sny-links-list>
-        <sny-links-list></sny-links-list>
-        <sny-links-list></sny-links-list>
-        <sny-links-list></sny-links-list>
+        <sny-links-list 
+            *ngFor="let item of navigationItems" 
+            [title]="item.title"
+            [items]="item.items"></sny-links-list>
     </div>
 </div>

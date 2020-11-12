@@ -60,5 +60,5 @@ $nb-themes: nb-register-theme((
 .nb-theme-dark nb-sidebar,
 .nb-theme-dark nb-layout-footer,
 .nb-theme-dark nb-card {
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px) brightness(65%);
 }

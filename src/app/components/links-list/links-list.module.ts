@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LinksListComponent } from './links-list.component';
-import { NbCardModule, NbListModule } from '@nebular/theme';
+import { NbCardModule, NbMenuModule } from '@nebular/theme';
 
 
 
@@ -10,7 +10,7 @@ import { NbCardModule, NbListModule } from '@nebular/theme';
   imports: [
     CommonModule,
     NbCardModule,
-    NbListModule
+    NbMenuModule
   ],
   exports: [LinksListComponent]
 })

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Routes, RouterModule } from '@angular/router';
@@ -30,6 +31,7 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forRoot(routes),
+    CommonModule,
     FlexLayoutModule,
     ClockModule,
     WeatherModule,

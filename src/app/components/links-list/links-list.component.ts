@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { NbMenuItem } from '@nebular/theme';
 
 @Component({
   selector: 'sny-links-list',
@@ -8,6 +9,9 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 })
 export class LinksListComponent {
 
-  constructor() { }
+  @Input() items: NbMenuItem[];
+  @Input() title: string;
+
+  constructor() {}
 
 }
