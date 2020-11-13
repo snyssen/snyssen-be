@@ -1,12 +1,11 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { Routes, RouterModule } from '@angular/router';
 import { ClockModule } from './components/clock/clock.module';
 import { LinksListModule } from './components/links-list/links-list.module';
 import { SearchBarModule } from './components/search-bar/search-bar.module';
 import { WeatherModule } from './components/weather/weather.module';
 import { HomeComponent } from './home/home.component';
+import { SharedModule } from './shared/shared.module';
 import { StartPageComponent } from './start-page/start-page.component';
 
 const routes: Routes = [
@@ -31,8 +30,7 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forRoot(routes),
-    CommonModule,
-    FlexLayoutModule,
+    SharedModule,
     ClockModule,
     WeatherModule,
     SearchBarModule,

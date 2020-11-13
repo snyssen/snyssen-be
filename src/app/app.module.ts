@@ -16,6 +16,7 @@ import { NbThemeModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     NbIconModule,
     NbButtonModule,
     NbMenuModule.forRoot(),
-    NbActionsModule
+    NbActionsModule,
+    SharedModule
   ],
   providers: [
     NbSidebarService,

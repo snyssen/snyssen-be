@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SearchBarComponent } from './search-bar.component';
 import { NbButtonModule, NbFormFieldModule, NbIconModule, NbInputModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
 @NgModule({
   declarations: [SearchBarComponent],
   imports: [
-    CommonModule,
+    SharedModule,
     FormsModule,
     NbFormFieldModule,
     NbInputModule,
