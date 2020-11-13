@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import { WeatherComponent } from './weather.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { WeatherService } from './weather.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
 @NgModule({
   declarations: [WeatherComponent],
+  providers: [
+    WeatherService
+  ],
   imports: [
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   exports: [WeatherComponent]
 })
