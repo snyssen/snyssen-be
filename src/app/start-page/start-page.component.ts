@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NbMenuItem } from '@nebular/theme';
+import { DEFAULT_NAV_ITEMS } from './DefaultNavigationItems';
 
 @Component({
   templateUrl: './start-page.component.html',
@@ -7,32 +8,7 @@ import { NbMenuItem } from '@nebular/theme';
 })
 export class StartPageComponent {
 
-  navigationItems: {title: string, items: NbMenuItem[]}[] = [
-    {
-      title: 'Placeholder 1',
-      items: [
-        {
-          title: 'Profile',
-          icon: 'person-outline',
-          link: '/'
-        },
-        {
-          title: 'Change Password',
-          icon: 'lock-outline',
-          url: 'https://snyssen.be'
-        },
-        {
-          title: 'Privacy Policy',
-          icon: { icon: 'checkmark-outline', pack: 'eva' },
-        },
-        {
-          title: 'Logout',
-          icon: 'unlock-outline',
-        }
-      ]
-    }
-  ];
-
+  navigationItems: {title: string, items: NbMenuItem[]}[] = DEFAULT_NAV_ITEMS;
   constructor() { }
 
 }
