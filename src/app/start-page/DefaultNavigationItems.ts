@@ -115,28 +115,18 @@ export const DEFAULT_NAV_ITEMS: {title: string, icon?: string | NbIconConfig, it
             {
                 title: 'Facebook',
                 icon: {
-                    icon: 'facebook',
+                    icon: 'facebook-f',
                     pack: 'fab'
                 },
-                children: [
-                    {
-                        title: 'Facebook',
-                        icon: {
-                            icon: 'facebook-f',
-                            pack: 'fab'
-                        },
-                        url: 'https://www.facebook.com/'
-                    },
-                    {
-                        title: 'Messenger',
-                        icon: {
-                            icon: 'facebook-messenger',
-                            pack: 'fab'
-                        },
-                        url: 'https://www.messenger.com/'
-                    }
-                ],
-                expanded: true
+                url: 'https://www.facebook.com/'
+            },
+            {
+                title: 'Messenger',
+                icon: {
+                    icon: 'facebook-messenger',
+                    pack: 'fab'
+                },
+                url: 'https://www.messenger.com/'
             },
             {
                 title: 'Patreon',
@@ -145,6 +135,90 @@ export const DEFAULT_NAV_ITEMS: {title: string, icon?: string | NbIconConfig, it
                     pack: 'fab'
                 },
                 url: 'https://www.patreon.com/home'
+            }
+        ]
+    },
+    {
+        title: 'System',
+        icon: 'hard-drive-outline',
+        items: [
+            {
+                title: 'Cockpit',
+                icon: {
+                    icon: 'server',
+                    pack: 'fas'
+                },
+                url: 'https://snyssen.be:9090'
+            },
+            {
+                title: 'Nextcloud',
+                icon: {
+                    icon: 'cloud',
+                    pack: 'fas'
+                },
+                url: 'https://snyssen.be/nextcloud'
+            },
+            {
+                title: 'McMyAdmin',
+                icon: {
+                    icon: 'cubes',
+                    pack: 'fas'
+                },
+                url: 'https://snyssen.be/McMyAdmin/'
+            },
+            {
+                title: 'McLiveMap',
+                icon: {
+                    icon: 'map-marked-alt',
+                    pack: 'fas'
+                },
+                url: 'https://snyssen.be/McLiveMap/'
+            }
+        ]
+    },
+    {
+        title: 'Downloads',
+        icon: 'cloud-download-outline',
+        items: [
+            {
+                title: 'YTS',
+                url: 'https://yts.mx/',
+                icon: {
+                    icon: 'download',
+                    pack: 'fas'
+                }
+            },
+            {
+                title: '1337X',
+                url: 'https://www.1337x.to/home/',
+                icon: {
+                    icon: 'download',
+                    pack: 'fas'
+                }
+            },
+            {
+                title: 'YGG Torrent',
+                url: 'https://ww.yggtorrent.site/',
+                icon: {
+                    icon: 'download',
+                    pack: 'fas'
+                }
+            },
+            {
+                title: 'The Pirate Bay',
+                url: 'https://thepiratebay.org/index.html',
+                icon: {
+                    icon: 'download',
+                    pack: 'fas'
+                }
+            },
+            {
+                title: 'Baby Torrent',
+                url: 'https://babytorrent.ms/',
+                icon: {
+                    icon: 'download',
+                    pack: 'fas'
+                }
             }
         ]
     }
