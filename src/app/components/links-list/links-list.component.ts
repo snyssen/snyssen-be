@@ -25,8 +25,6 @@ export class LinksListComponent {
   constructor() {}
 
   getTypeOfIcon(): 'string' | 'number' | 'bigint' | 'boolean' | 'symbol' | 'undefined' | 'object' | 'function' {
-    const type = typeof this.icon;
-    console.log('type: ', type);
-    return type;
+    return typeof this.icon;
   }
 }
