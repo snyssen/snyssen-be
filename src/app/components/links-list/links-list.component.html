@@ -1,4 +1,13 @@
 <nb-card [size]="'small'">
-    <nb-card-header>{{title}}</nb-card-header>
+    <nb-card-header>
+        <ng-container [ngSwitch]="getTypeOfIcon()">
+            <nb-icon *ngSwitchCase="'string'"
+                [icon]="iconAsStr"></nb-icon>
+            <nb-icon *ngSwitchCase="'object'"
+                [icon]="iconAsIcon.icon" [pack]="iconAsIcon.pack"
+                [status]="iconAsIcon.status" [options]="iconAsIcon.options"></nb-icon>
+        </ng-container>
+        {{title}}
+    </nb-card-header>
     <nb-menu [items]="items"></nb-menu>
 </nb-card>

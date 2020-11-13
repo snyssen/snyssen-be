@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NbMenuItem } from '@nebular/theme';
+import { NbIconConfig, NbMenuItem } from '@nebular/theme';
 import { DEFAULT_NAV_ITEMS } from './DefaultNavigationItems';
 
 @Component({
@@ -8,7 +8,7 @@ import { DEFAULT_NAV_ITEMS } from './DefaultNavigationItems';
 })
 export class StartPageComponent {
 
-  navigationItems: {title: string, items: NbMenuItem[]}[] = DEFAULT_NAV_ITEMS;
+  navigationItems: {title: string, icon?: string | NbIconConfig, items: NbMenuItem[]}[] = DEFAULT_NAV_ITEMS;
   constructor() { }
 
 }

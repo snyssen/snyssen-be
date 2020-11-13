@@ -1,8 +1,9 @@
-import { NbMenuItem } from '@nebular/theme';
+import { NbIconConfig, NbMenuItem } from '@nebular/theme';
 
-export const DEFAULT_NAV_ITEMS: {title: string, items: NbMenuItem[]}[] = [
+export const DEFAULT_NAV_ITEMS: {title: string, icon?: string | NbIconConfig, items: NbMenuItem[]}[] = [
     {
         title: 'Development',
+        icon: 'code',
         items: [
             {
                 title: 'Jira',

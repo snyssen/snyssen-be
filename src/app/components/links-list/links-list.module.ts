@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { LinksListComponent } from './links-list.component';
-import { NbCardModule, NbMenuModule } from '@nebular/theme';
+import { NbCardModule, NbIconModule, NbMenuModule } from '@nebular/theme';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
@@ -10,7 +10,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     SharedModule,
     NbCardModule,
-    NbMenuModule
+    NbMenuModule,
+    NbIconModule
   ],
   exports: [LinksListComponent]
 })
