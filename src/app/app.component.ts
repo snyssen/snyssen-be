@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NbMenuItem, NbThemeService } from '@nebular/theme';
+import { NbIconLibraries, NbMenuItem, NbThemeService } from '@nebular/theme';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +24,11 @@ export class AppComponent implements OnInit {
   ];
   pageMenuItems: NbMenuItem[] = [];
 
-  constructor(private themeService: NbThemeService) {
+  constructor(private themeService: NbThemeService,
+              private iconLibraries: NbIconLibraries) {
+    this.iconLibraries.registerFontPack('fa', { packClass: 'fa', iconClassPrefix: 'fa' });
+    this.iconLibraries.registerFontPack('far', { packClass: 'far', iconClassPrefix: 'fa' });
+    this.iconLibraries.registerFontPack('fas', { packClass: 'fas', iconClassPrefix: 'fa' });
 
   }
 
