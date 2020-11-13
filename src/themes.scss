@@ -64,3 +64,12 @@ $nb-themes: nb-register-theme((
   backdrop-filter: blur(10px) brightness(65%);
   border: 0.0625rem solid #101426;
 }
+
+// workaround for the footer not having a fixed position
+.nb-theme-dark nb-layout-footer.fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1040;
+}
