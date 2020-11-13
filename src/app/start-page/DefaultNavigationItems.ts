@@ -159,6 +159,14 @@ export const DEFAULT_NAV_ITEMS: {title: string, icon?: string | NbIconConfig, it
                 url: 'https://snyssen.be/nextcloud'
             },
             {
+                title: 'Jellyfin',
+                icon: {
+                    icon: 'photo-video',
+                    pack: 'fas'
+                },
+                url: 'https://snyssen.be/jellyfin/'
+            },
+            {
                 title: 'McMyAdmin',
                 icon: {
                     icon: 'cubes',
