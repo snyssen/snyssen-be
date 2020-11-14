@@ -3,6 +3,7 @@ import { WeatherService } from './weather.service';
 import { catchError, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
 import { of } from 'rxjs/internal/observable/of';
+import { OneCallWeather } from './models/OneCallWeather';
 
 @Component({
   selector: 'sny-weather',
@@ -12,17 +13,17 @@ import { of } from 'rxjs/internal/observable/of';
 })
 export class WeatherComponent implements OnInit {
 
-  currentWeather$: Observable<any>;
+  oneCallWeather: OneCallWeather;
 
   constructor(private weatherService: WeatherService) { }
 
-  ngOnInit(): void {
-    const geoTrackingEnabled = this.weatherService.initializeTracking();
-    console.log('geoTrackingEnabled: ', geoTrackingEnabled);
-    this.weatherService.getCurrentWeather('huy,be').pipe(
-      catchError(err => { console.error(err); return of(null); }),
-      tap(weather => console.log('weather: ', weather))
-    ).subscribe();
+  async ngOnInit(): Promise<void> {
+    try {
+      this.oneCallWeather = await this.weatherService.getWeather();
+      console.log('this.oneCallWeather: ', this.oneCallWeather);
+    } catch (err) {
+      console.error(err);
+    }
   }
 
 }
