@@ -1,0 +1,13 @@
+.center-block {
+    margin: 0 15%;
+}
+
+.cards-grid {
+    //padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    row-gap: 12px;
+    column-gap: 96px;
+    justify-content: stretch;
+    align-content: stretch;
+}

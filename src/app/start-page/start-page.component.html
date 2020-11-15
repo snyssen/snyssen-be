@@ -1,1 +1,17 @@
-<sny-clock></sny-clock>
+<div class="fill-container" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="32px">
+    <div [ngClass]="{'center-block': !isMobile}" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="24px">
+        <div class="info-block" fxLayout="row" fxLayoutAlign="start center">
+            <sny-clock></sny-clock>
+            <div fxFlex></div>
+            <sny-weather></sny-weather>
+        </div>
+        <sny-search-bar></sny-search-bar>
+    </div>
+    <div class="cards-grid">
+        <sny-links-list 
+            *ngFor="let item of navigationItems" 
+            [title]="item.title"
+            [items]="item.items"
+            [icon]="item.icon"></sny-links-list>
+    </div>
+</div>

@@ -15,7 +15,7 @@
     <router-outlet></router-outlet>
   </nb-layout-column>
 
-  <nb-layout-footer *ngIf="navMenuPosition === 'bottom'" >
+  <nb-layout-footer *ngIf="navMenuPosition === 'bottom'" [fixed]="true">
     <nb-actions size="small">
       <nb-action *ngFor="let navItem of navMenuItems"
         [icon]="navItem.icon"

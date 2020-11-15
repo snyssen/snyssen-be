@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 })
 export class ClockComponent implements OnInit, OnDestroy {
 
-  currentDate: BehaviorSubject<Date> = new BehaviorSubject<Date>(new Date())
+  currentDate: BehaviorSubject<Date> = new BehaviorSubject<Date>(new Date());
   private interval: any;
 
   constructor() { }

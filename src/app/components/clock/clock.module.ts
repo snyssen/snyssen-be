@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ClockComponent } from './clock.component';
-import { AppModule } from 'src/app/app.module';
-import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -11,7 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
     ClockComponent
   ],
   imports: [
-    BrowserModule
+    SharedModule
   ],
   exports: [
     ClockComponent

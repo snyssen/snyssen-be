@@ -1,4 +1,4 @@
-<div fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="3px">
-    <div>{{currentDate | async | date:'HH:mm:ss'}}</div>
-    <div>{{currentDate | async | date:'EEEE, MMMM dd'}}</div>
+<div fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="8px">
+    <div class="clock time">{{currentDate | async | date:'HH:mm:ss'}}</div>
+    <div class="clock date">{{currentDate | async | date:'EEEE, MMMM dd'}}</div>
 </div>
