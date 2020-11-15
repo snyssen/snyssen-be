@@ -3,19 +3,31 @@
 </ng-container>
 <ng-template #readyTemplate>
     <ng-container *ngIf="!error; else errorTemplate">
-        <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="3px">
-            <div *ngIf="cityAndCountryInfo">
-                <div fxLayout="row" fxLayoutAlign="end center">{{cityAndCountryInfo.locality}}, {{cityAndCountryInfo.countryCode}}</div>
+        <div class="weather-grid">
+            <div class="weather-icon">
+                <img [src]="currentWeatherIconUri">
             </div>
-            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="3px">
-                <div>
-                    <img [src]="currentWeatherIconUri">
-                </div>
-                <div fxLayout="column" fxLayoutAlign="space-around end">
-                    <div><b>{{currentWeather.temp}}°C</b> - Feels like <b>{{currentWeather.feels_like}}°C</b></div>
-                    <div><nb-icon icon="wind" pack="fas"></nb-icon>{{currentWeather.wind_speed}} m/s</div>
-                    <div><nb-icon icon="sun-outline"></nb-icon>{{currentWeather.sunrise.toDate() | date:'HH:mm'}}<nb-icon icon="moon-outline"></nb-icon>{{currentWeather.sunset.toDate() | date:'HH:mm'}}</div>
-                </div>
+            <div class="weather-city">
+                {{cityAndCountryInfo.locality}}, {{cityAndCountryInfo.countryCode}}
+            </div>
+            <div class="weather-wind">
+                <nb-icon icon="navigation-outline" [ngStyle]="{'transform': 'rotate(' + currentWeather.wind_deg + 'deg)'}"></nb-icon>{{currentWeather.wind_speed}} m/s
+            </div>
+            <div class="weather-more">
+                <button nbButton outline [status]="'info'" [size]="'small'">
+                    <nb-icon icon="expand-outline"></nb-icon>
+                </button>
+            </div>
+            <div class="weather-temp">
+                <b>{{currentWeather.temp}}°C</b> | Feels like <b>{{currentWeather.feels_like}}°C</b>
+            </div>
+            <div class="weather-sun">
+                <nb-icon icon="sun-outline"></nb-icon>{{currentWeather.sunrise.toDate() | date:'HH:mm'}}<nb-icon icon="moon-outline"></nb-icon>{{currentWeather.sunset.toDate() | date:'HH:mm'}}
+            </div>
+            <div class="weather-alerts">
+                <button *ngIf="oneCallWeather.alerts && oneCallWeather.alerts.length > 0" nbButton outline [status]="'danger'" [size]="'small'" style="position: relative;">
+                    <nb-icon icon="alert-triangle-outline"></nb-icon>
+                </button>
             </div>
         </div>
     </ng-container>

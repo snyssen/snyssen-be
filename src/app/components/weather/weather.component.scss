@@ -1,0 +1,32 @@
+.weather-grid {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+    grid-template-areas: 
+        "icon city wind more"
+        "icon temp sun alerts"
+}
+.weather-icon {
+    grid-area: icon;
+    justify-self: center;
+    align-self: center;
+}
+.weather-city {
+    grid-area: city;
+}
+.weather-wind {
+    grid-area: wind;
+}
+.weather-alerts {
+    grid-area: alerts;
+}
+.weather-temp {
+    grid-area: temp;
+}
+.weather-sun {
+    grid-area: sun;
+}
+.weather-more {
+    grid-area: more;
+}

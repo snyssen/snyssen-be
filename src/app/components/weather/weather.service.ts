@@ -42,7 +42,7 @@ export class WeatherService {
       'ready' : 'not-ready';
   }
 
-  private async tryWaitForGeoTracking(maxAttempts: number = 3, delay: number = 150, incrementDelay: boolean = true): Promise<'ready' | 'no-support' | 'not-ready'> {
+  private async tryWaitForGeoTracking(maxAttempts: number = 3, delay: number = 250, incrementDelay: boolean = true): Promise<'ready' | 'no-support' | 'not-ready'> {
     let attempts = 0; let status: 'ready' | 'no-support' | 'not-ready' = 'not-ready';
     while (status === 'not-ready' && attempts < maxAttempts) {
       if (attempts > 0) {

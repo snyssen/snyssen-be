@@ -185,6 +185,36 @@ export const DEFAULT_NAV_ITEMS: {title: string, icon?: string | NbIconConfig, it
         ]
     },
     {
+        title: 'Games',
+        icon: 'heart-outline',
+        items: [
+            {
+                title: 'Roll20',
+                icon: {
+                    icon: 'dice-d20',
+                    pack: 'fas'
+                },
+                url: 'https://roll20.net/'
+            },
+            {
+                title: 'HeroForge',
+                icon: {
+                    icon: 'user-astronaut',
+                    pack: 'fas'
+                },
+                url: 'https://www.heroforge.com/'
+            },
+            {
+                title: 'Token stamp',
+                icon: {
+                    icon: 'user-circle',
+                    pack: 'fas'
+                },
+                url: 'https://rolladvantage.com/tokenstamp/'
+            }
+        ]
+    },
+    {
         title: 'Downloads',
         icon: 'cloud-download-outline',
         items: [
