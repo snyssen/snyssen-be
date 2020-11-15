@@ -30,7 +30,7 @@ const routes: Routes = [
     StartPageComponent
   ],
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { useHash: true }),
     SharedModule,
     ClockModule,
     WeatherModule,
