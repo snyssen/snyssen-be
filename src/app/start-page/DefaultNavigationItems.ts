@@ -2,6 +2,60 @@ import { NbIconConfig, NbMenuItem } from '@nebular/theme';
 
 export const DEFAULT_NAV_ITEMS: {title: string, icon?: string | NbIconConfig, items: NbMenuItem[]}[] = [
     {
+        title: 'Social',
+        icon: 'people-outline',
+        items: [
+            {
+                title: 'Reddit',
+                icon: {
+                    icon: 'reddit',
+                    pack: 'fab'
+                },
+                url: 'https://www.reddit.com/'
+            },
+            {
+                title: 'Youtube',
+                icon: {
+                    icon: 'youtube',
+                    pack: 'fab'
+                },
+                url: 'https://www.youtube.com/'
+            },
+            {
+                title: 'LinkedIn',
+                icon: {
+                    icon: 'linkedin',
+                    pack: 'fab'
+                },
+                url: 'https://www.linkedin.com/feed'
+            },
+            {
+                title: 'Facebook',
+                icon: {
+                    icon: 'facebook-f',
+                    pack: 'fab'
+                },
+                url: 'https://www.facebook.com/'
+            },
+            {
+                title: 'Messenger',
+                icon: {
+                    icon: 'facebook-messenger',
+                    pack: 'fab'
+                },
+                url: 'https://www.messenger.com/'
+            },
+            {
+                title: 'Patreon',
+                icon: {
+                    icon: 'patreon',
+                    pack: 'fab'
+                },
+                url: 'https://www.patreon.com/home'
+            }
+        ]
+    },
+    {
         title: 'Development',
         icon: 'code',
         items: [
@@ -81,60 +135,6 @@ export const DEFAULT_NAV_ITEMS: {title: string, icon?: string | NbIconConfig, it
                         url: 'https://wakatime.com/dashboard'
                     }
                 ]
-            }
-        ]
-    },
-    {
-        title: 'Social',
-        icon: 'people-outline',
-        items: [
-            {
-                title: 'Reddit',
-                icon: {
-                    icon: 'reddit',
-                    pack: 'fab'
-                },
-                url: 'https://www.reddit.com/'
-            },
-            {
-                title: 'Youtube',
-                icon: {
-                    icon: 'youtube',
-                    pack: 'fab'
-                },
-                url: 'https://www.youtube.com/'
-            },
-            {
-                title: 'LinkedIn',
-                icon: {
-                    icon: 'linkedin',
-                    pack: 'fab'
-                },
-                url: 'https://www.linkedin.com/feed'
-            },
-            {
-                title: 'Facebook',
-                icon: {
-                    icon: 'facebook-f',
-                    pack: 'fab'
-                },
-                url: 'https://www.facebook.com/'
-            },
-            {
-                title: 'Messenger',
-                icon: {
-                    icon: 'facebook-messenger',
-                    pack: 'fab'
-                },
-                url: 'https://www.messenger.com/'
-            },
-            {
-                title: 'Patreon',
-                icon: {
-                    icon: 'patreon',
-                    pack: 'fab'
-                },
-                url: 'https://www.patreon.com/home'
             }
         ]
     },
