@@ -1,0 +1,3 @@
+interface Number {
+    toDate(): Date;
+}

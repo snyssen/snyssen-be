@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { GeolocationService, GEOLOCATION_SUPPORT } from '@ng-web-apis/geolocation';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { Delayer } from 'src/app/helpers/Delayer';
 import { environment } from 'src/environments/environment';
 import { CityAndCountryInfo } from './models/CityAndCountryInfo';
@@ -12,7 +12,8 @@ import { OneCallWeather } from './models/OneCallWeather';
 })
 export class WeatherService {
 
-  private readonly GEOLOCATION_ERROR_MESSAGE = 'Either your browser does not support geolocation of you have not authorized this website to use that feature.';
+  private readonly GEOLOCATION_NO_SUPPORT_MESSAGE = 'Either your browser does not support geolocation of you have not authorized this website to use that feature.';
+  private readonly GEOLOCATION_NOT_READY_MESSAGE = 'The geolocation tracking service could not be started.';
   private readonly WEATHER_CACHE_STORAGE_BASE_NAME = 'weather-cache';
   private readonly WEATHER_CACHE_EXPIRATION = 60; // expiration in minute
   private readonly CITY_CACHE_STORAGE_BASE_NAME = 'city-cache'; // This cache doesn't expire
@@ -26,27 +27,31 @@ export class WeatherService {
     this.initializeTracking();
   }
 
-  initializeTracking(): boolean {
+  initializeTracking(): 'ready' | 'no-support' | 'not-ready' {
     if (!this._trackingInitialized) {
       if (this.geolocationSupport === true) {
-        this.geolocation$.subscribe(position => this._geolocationSnapshot = position);
+        console.debug('Starting geotracking');
+        this.geolocation$.pipe(
+          tap(position => console.debug('New position acquired: ', position))
+        ).subscribe(position => this._geolocationSnapshot = position);
       }
       this._trackingInitialized = true;
     }
-    return this._trackingInitialized && this.geolocationSupport
-      && this._geolocationSnapshot !== undefined && this._geolocationSnapshot !== null;
+    if (this.geolocationSupport === false) { return 'no-support'; }
+    return this._geolocationSnapshot !== undefined && this._geolocationSnapshot !== null ?
+      'ready' : 'not-ready';
   }
 
-  private async tryWaitForGeoTracking(maxAttempts: number = 3, delay: number = 100, incrementDelay: boolean = true): Promise<boolean> {
-    let attempts = 0; let success = false;
-    while (!success && attempts < maxAttempts) {
+  private async tryWaitForGeoTracking(maxAttempts: number = 3, delay: number = 150, incrementDelay: boolean = true): Promise<'ready' | 'no-support' | 'not-ready'> {
+    let attempts = 0; let status: 'ready' | 'no-support' | 'not-ready' = 'not-ready';
+    while (status === 'not-ready' && attempts < maxAttempts) {
       if (attempts > 0) {
         await Delayer.delay(incrementDelay ? attempts * delay : delay);
       }
-      success = this.initializeTracking();
+      status = this.initializeTracking();
       attempts++;
     }
-    return success;
+    return status;
   }
 
   private getWeatherCacheKey(lat: number, lon: number): string {
@@ -57,9 +62,9 @@ export class WeatherService {
     const cacheValue = localStorage.getItem(this.getWeatherCacheKey(lat, lon));
     if (!cacheValue) { return null; }
     const weather: OneCallWeather = JSON.parse(cacheValue);
-    if (!weather || !weather.current || !weather.current.dtAsDate) { return null; }
+    if (!weather || !weather.current || !weather.current.dt) { return null; }
     // check cache expiration
-    const lastQueryTimestamp = weather.current.dtAsDate;
+    const lastQueryTimestamp = weather.current.dt.toDate();
     if (lastQueryTimestamp.setMinutes(
       lastQueryTimestamp.getMinutes() + this.WEATHER_CACHE_EXPIRATION
     ) < new Date().getTime()) { // cache not expired
@@ -77,7 +82,17 @@ export class WeatherService {
   async getWeather(unit: 'standard' | 'metric' | 'imperial' = 'metric'): Promise<OneCallWeather> {
     return new Promise<OneCallWeather>(async (resolve, reject) => {
       // Check if user has geolocation active (with wait and retries)
-      if (! await this.tryWaitForGeoTracking()) { reject(new Error(this.GEOLOCATION_ERROR_MESSAGE)); return; }
+      const status = await this.tryWaitForGeoTracking();
+      switch (status) {
+        case 'no-support':
+          reject(new Error(this.GEOLOCATION_NO_SUPPORT_MESSAGE));
+          return;
+        case 'not-ready':
+          reject(new Error(this.GEOLOCATION_NOT_READY_MESSAGE));
+          return;
+        default:
+          break;
+      }
       // check if value is available in cache
       const weather = this.tryGetWeatherFromCache(
         this._geolocationSnapshot.coords.latitude,
@@ -128,7 +143,17 @@ export class WeatherService {
   async getCityAndCountryInfo(): Promise<CityAndCountryInfo> {
     return new Promise<CityAndCountryInfo>(async (resolve, reject) => {
       // Check if user has geolocation active (with wait and retries)
-      if (! await this.tryWaitForGeoTracking()) { reject(new Error(this.GEOLOCATION_ERROR_MESSAGE)); return; }
+      const status = await this.tryWaitForGeoTracking();
+      switch (status) {
+        case 'no-support':
+          reject(new Error(this.GEOLOCATION_NO_SUPPORT_MESSAGE));
+          return;
+        case 'not-ready':
+          reject(new Error(this.GEOLOCATION_NOT_READY_MESSAGE));
+          return;
+        default:
+          break;
+      }
       // check if value is available in cache
       const cityInfo = this.tryGetCityFromCache(
         this._geolocationSnapshot.coords.latitude,
@@ -146,7 +171,6 @@ export class WeatherService {
           return null;
         })
       ).subscribe((response: CityAndCountryInfo) => {
-        console.log('response: ', response);
         if (response) {
           // save result in cache
           this.setCityInCache(

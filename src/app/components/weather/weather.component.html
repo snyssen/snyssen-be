@@ -1,1 +1,25 @@
-<div>WEATHER TEMPLATE</div>
+<ng-container *ngIf="loading; else readyTemplate">
+    <div>WIP LOADING SKELETON</div>
+</ng-container>
+<ng-template #readyTemplate>
+    <ng-container *ngIf="!error; else errorTemplate">
+        <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="3px">
+            <div *ngIf="cityAndCountryInfo">
+                <div fxLayout="row" fxLayoutAlign="end center">{{cityAndCountryInfo.locality}}, {{cityAndCountryInfo.countryCode}}</div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="3px">
+                <div>
+                    <img [src]="currentWeatherIconUri">
+                </div>
+                <div fxLayout="column" fxLayoutAlign="space-around end">
+                    <div><b>{{currentWeather.temp}}°C</b> - Feels like <b>{{currentWeather.feels_like}}°C</b></div>
+                    <div><nb-icon icon="wind" pack="fas"></nb-icon>{{currentWeather.wind_speed}} m/s</div>
+                    <div><nb-icon icon="sun-outline"></nb-icon>{{currentWeather.sunrise.toDate() | date:'HH:mm'}}<nb-icon icon="moon-outline"></nb-icon>{{currentWeather.sunset.toDate() | date:'HH:mm'}}</div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #errorTemplate>
+        <div>An error occurred</div>
+    </ng-template>
+</ng-template>

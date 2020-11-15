@@ -3,6 +3,7 @@ import { WeatherComponent } from './weather.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { WeatherService } from './weather.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NbIconModule } from '@nebular/theme';
 
 
 
@@ -13,7 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    NbIconModule
   ],
   exports: [WeatherComponent]
 })

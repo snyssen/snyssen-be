@@ -4,4 +4,5 @@ export interface CityAndCountryInfo {
     countryName: string;
     countryCode: string;
     city: string;
+    locality: string;
 }

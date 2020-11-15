@@ -14,11 +14,8 @@ export class OneCallWeather {
 
 export class OneCallCurrentWeather {
     dt: number;
-    get dtAsDate(): Date { return this.dt ? new Date(this.dt) : null; }
     sunrise: number;
-    get sunriseAsDate(): Date { return this.sunrise ? new Date(this.sunrise) : null; }
     sunset: number;
-    get sunsetAsDate(): Date { return this.sunset ? new Date(this.sunset) : null; }
     temp: number;
     feels_like: number;
     pressure: number;
@@ -41,13 +38,11 @@ export class OneCallCurrentWeather {
 
 export class OneCallMinutelyWeather {
     dt: number;
-    get dtAsDate(): Date { return this.dt ? new Date(this.dt) : null; }
     precipitation: number;
 }
 
 export class OneCallHourlyWeather {
     dt: number;
-    get dtAsDate(): Date { return this.dt ? new Date(this.dt) : null; }
     temp: number;
     feels_like: number;
     pressure: number;
@@ -70,11 +65,8 @@ export class OneCallHourlyWeather {
 
 export class OneCallDailyWeather {
     dt: number;
-    get dtAsDate(): Date { return this.dt ? new Date(this.dt) : null; }
     sunrise: number;
-    get sunriseAsDate(): Date { return this.sunrise ? new Date(this.sunrise) : null; }
     sunset: number;
-    get sunsetAsDate(): Date { return this.sunset ? new Date(this.sunset) : null; }
     temp: {
         morn: number,
         day: number,
@@ -108,13 +100,11 @@ export class OneCallAlert {
     sender_name: string;
     event: string;
     start: number;
-    get startAsDate(): Date { return this.start ? new Date(this.start) : null; }
     end: number;
-    get endAsDate(): Date { return this.end ? new Date(this.end) : null; }
     description: string;
 }
 
-export interface Weather {
+export class Weather {
     id: number;
     main: string;
     description: string;

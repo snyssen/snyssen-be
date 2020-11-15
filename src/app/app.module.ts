@@ -18,6 +18,12 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from './shared/shared.module';
 
+Number.prototype.toDate = function(): Date {
+  const dt = new Date(0);
+  dt.setUTCSeconds(this);
+  return dt;
+};
+
 @NgModule({
   declarations: [
     AppComponent
