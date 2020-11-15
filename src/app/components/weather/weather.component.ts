@@ -18,14 +18,55 @@ export class WeatherComponent implements OnInit {
   error = false;
   oneCallWeather: OneCallWeather;
   cityAndCountryInfo: CityAndCountryInfo;
-  get currentWeatherIconUri(): string {
-    if (!this.oneCallWeather.current.weather || this.oneCallWeather.current.weather.length <= 0) {
+  get currentWeatherFAIconName(): string {
+    if (!this.currentWeather.weather || this.currentWeather.weather.length <= 0) {
       return null;
     }
-    return environment.openWeatherMap.iconsBaseUri
-    // get day only icon as night icons don't look good on dark theme
-      + this.oneCallWeather.current.weather[0].icon.slice(0, -1) + 'd'
-      + environment.openWeatherMap.iconsExt;
+    let iconName: string;
+    // see codes here -> https://openweathermap.org/weather-conditions
+    switch (this.currentWeather.weather[0].icon) {
+      case '01d':
+        iconName = 'sun';
+        break;
+      case '01n':
+        iconName = 'moon';
+        break;
+      case '02d':
+        iconName = 'cloud-sun';
+        break;
+      case '02n':
+        iconName = 'cloud-moon';
+        break;
+      case '03d':
+      case '03n':
+      case '04d':
+      case '04n':
+        iconName = 'cloud';
+        break;
+      case '09d':
+      case '09n':
+        iconName = 'cloud-showers-heavy';
+        break;
+      case '10d':
+        iconName = 'cloud-sun-rain';
+        break;
+      case '10n':
+        iconName = 'cloud-moon-rain';
+        break;
+      case '11d':
+      case '11n':
+        iconName = 'bolt';
+        break;
+      case '13d':
+      case '13n':
+        iconName = 'snowflake';
+        break;
+      case '50d':
+      case '50n':
+        iconName = 'smog';
+        break;
+    }
+    return iconName;
   }
   get currentWeather(): OneCallCurrentWeather {
     if (!this.oneCallWeather) { return null; }

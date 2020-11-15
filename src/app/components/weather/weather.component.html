@@ -5,7 +5,7 @@
     <ng-container *ngIf="!error; else errorTemplate">
         <div class="weather-grid">
             <div class="weather-icon">
-                <img [src]="currentWeatherIconUri">
+                <nb-icon [icon]="currentWeatherFAIconName" pack="fas"></nb-icon>
             </div>
             <div class="weather-city">
                 {{cityAndCountryInfo.locality}}, {{cityAndCountryInfo.countryCode}}
