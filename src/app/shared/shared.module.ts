@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { DirectivesModule } from '../directives/directives.module';
 
 
 
@@ -8,11 +9,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   declarations: [],
   imports: [
     CommonModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    DirectivesModule
   ],
   exports: [
     CommonModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    DirectivesModule
   ]
 })
 export class SharedModule { }
