@@ -56,85 +56,108 @@ export const DEFAULT_NAV_ITEMS: {title: string, icon?: string | NbIconConfig, it
         ]
     },
     {
+        title: 'Work',
+        icon: 'briefcase-outline',
+        items: [
+            {
+                title: 'Websites',
+                children: [
+                    {
+                        title: 'CasterStats production',
+                        url: 'https://app.casterstats.net/'
+                    },
+                    {
+                        title: 'CasterStats staging',
+                        url: 'https://staging.casterstats.net/'
+                    },
+                    {
+                        title: 'CIM dashboard internal',
+                        url: 'https://ciminternal.casterstats.net/'
+                    },
+                    {
+                        title: 'CIM dashboard production',
+                        url: 'https://cim.casterstats.net/'
+                    },
+                    {
+                        title: 'CIM dashboard staging',
+                        url: 'https://cimstaging.casterstats.net/'
+                    }
+                ]
+            },
+            {
+                title: 'Jira',
+                icon: {
+                    icon: 'jira',
+                    pack: 'fab'
+                },
+                url: 'https://nmedia.atlassian.net/'
+            },
+            {
+                title: 'BitBucket',
+                icon: {
+                    icon: 'bitbucket',
+                    pack: 'fab'
+                },
+                url: 'https://bitbucket.org/dashboard/overview'
+            },
+            {
+                title: 'TeamCity',
+                icon: {
+                    icon: 'shapes',
+                    pack: 'fas'
+                },
+                url: 'http://ns300234.ip-91-121-30.eu:8500'
+            },
+            {
+                title: 'Octopus',
+                icon: {
+                    icon: 'octopus-deploy',
+                    pack: 'fab'
+                },
+                url: 'http://ns300234.ip-91-121-30.eu:7070/'
+            }
+        ]
+    },
+    {
         title: 'Development',
         icon: 'code',
         items: [
             {
-                title: 'Work',
-                children: [
-                    {
-                        title: 'Jira',
-                        icon: {
-                            icon: 'jira',
-                            pack: 'fab'
-                        },
-                        url: 'https://nmedia.atlassian.net/'
-                    },
-                    {
-                        title: 'BitBucket',
-                        icon: {
-                            icon: 'bitbucket',
-                            pack: 'fab'
-                        },
-                        url: 'https://bitbucket.org/dashboard/overview'
-                    },
-                    {
-                        title: 'TeamCity',
-                        icon: {
-                            icon: 'shapes',
-                            pack: 'fas'
-                        },
-                        url: 'http://ns300234.ip-91-121-30.eu:8500'
-                    },
-                    {
-                        title: 'Octopus',
-                        icon: {
-                            icon: 'octopus-deploy',
-                            pack: 'fab'
-                        },
-                        url: 'http://ns300234.ip-91-121-30.eu:7070/'
-                    }
-                ],
-                expanded: true
+                title: 'Angular localhost',
+                icon: {
+                    icon: 'angular',
+                    pack: 'fab'
+                },
+                url: 'http://localhost:4200'
             },
             {
-                title: 'Personnal',
-                children: [
-                    {
-                        title: 'GitHub',
-                        icon: {
-                            icon: 'github',
-                            pack: 'fab'
-                        },
-                        url: 'https://github.com/'
-                    },
-                    {
-                        title: 'GitBucket',
-                        icon: {
-                            icon: 'git-alt',
-                            pack: 'fab'
-                        },
-                        url: 'https://snyssen.be/gitbucket'
-                    }
-                ]
+                title: 'GitHub',
+                icon: {
+                    icon: 'github',
+                    pack: 'fab'
+                },
+                url: 'https://github.com/'
             },
             {
-                title: 'Other',
-                children: [
-                    {
-                        title: 'Slashscore',
-                        icon: {
-                            icon: 'medal',
-                            pack: 'fas'
-                        },
-                        url: 'https://app.slashscore.ai/'
-                    },
-                    {
-                        title: 'Wakatime',
-                        icon: 'clock-outline',
-                        url: 'https://wakatime.com/dashboard'
-                    }
-                ]
+                title: 'GitBucket',
+                icon: {
+                    icon: 'git-alt',
+                    pack: 'fab'
+                },
+                url: 'https://snyssen.be/gitbucket'
+            },
+            {
+                title: 'Slashscore',
+                icon: {
+                    icon: 'medal',
+                    pack: 'fas'
+                },
+                url: 'https://app.slashscore.ai/'
+            },
+            {
+                title: 'Wakatime',
+                icon: 'clock-outline',
+                url: 'https://wakatime.com/dashboard'
             }
         ]
     },
@@ -181,6 +204,14 @@ export const DEFAULT_NAV_ITEMS: {title: string, icon?: string | NbIconConfig, it
                     pack: 'fas'
                 },
                 url: 'https://snyssen.be/McLiveMap/'
+            },
+            {
+                title: 'Pi-Hole',
+                icon: {
+                    icon: 'raspberry-pi',
+                    pack: 'fab'
+                },
+                url: 'http://192.168.1.14/admin'
             }
         ]
     },
