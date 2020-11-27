@@ -61,25 +61,49 @@ export const DEFAULT_NAV_ITEMS: {title: string, icon?: string | NbIconConfig, it
         items: [
             {
                 title: 'Websites',
+                icon: {
+                    icon: 'globe',
+                    pack: 'fas'
+                },
                 children: [
                     {
                         title: 'CasterStats production',
+                        icon: {
+                            icon: 'chart-pie',
+                            pack: 'fas'
+                        },
                         url: 'https://app.casterstats.net/'
                     },
                     {
                         title: 'CasterStats staging',
+                        icon: {
+                            icon: 'chart-pie',
+                            pack: 'fas'
+                        },
                         url: 'https://staging.casterstats.net/'
                     },
                     {
                         title: 'CIM dashboard internal',
+                        icon: {
+                            icon: 'chart-bar',
+                            pack: 'fas'
+                        },
                         url: 'https://ciminternal.casterstats.net/'
                     },
                     {
                         title: 'CIM dashboard production',
+                        icon: {
+                            icon: 'chart-bar',
+                            pack: 'fas'
+                        },
                         url: 'https://cim.casterstats.net/'
                     },
                     {
                         title: 'CIM dashboard staging',
+                        icon: {
+                            icon: 'chart-bar',
+                            pack: 'fas'
+                        },
                         url: 'https://cimstaging.casterstats.net/'
                     }
                 ]
@@ -198,20 +222,37 @@ export const DEFAULT_NAV_ITEMS: {title: string, icon?: string | NbIconConfig, it
                 url: 'https://snyssen.be/McMyAdmin/'
             },
             {
-                title: 'McLiveMap',
+                title: 'Network',
                 icon: {
-                    icon: 'map-marked-alt',
+                    icon: 'network-wired',
                     pack: 'fas'
                 },
-                url: 'https://snyssen.be/McLiveMap/'
-            },
-            {
-                title: 'Pi-Hole',
-                icon: {
-                    icon: 'raspberry-pi',
-                    pack: 'fab'
-                },
-                url: 'http://192.168.1.14/admin'
+                children: [
+                    {
+                        title: 'Pi-Hole',
+                        icon: {
+                            icon: 'raspberry-pi',
+                            pack: 'fab'
+                        },
+                        url: 'http://192.168.1.3/admin'
+                    },
+                    {
+                        title: 'Router',
+                        icon: {
+                            icon: 'ethernet',
+                            pack: 'fas'
+                        },
+                        url: 'http://192.168.1.1'
+                    },
+                    {
+                        title: 'Access point',
+                        icon: {
+                            icon: 'wifi',
+                            pack: 'fas'
+                        },
+                        url: 'http://192.168.1.2'
+                    }
+                ]
             }
         ]
     },
@@ -242,6 +283,14 @@ export const DEFAULT_NAV_ITEMS: {title: string, icon?: string | NbIconConfig, it
                     pack: 'fas'
                 },
                 url: 'https://rolladvantage.com/tokenstamp/'
+            },
+            {
+                title: 'McLiveMap',
+                icon: {
+                    icon: 'map-marked-alt',
+                    pack: 'fas'
+                },
+                url: 'https://snyssen.be/McLiveMap/'
             }
         ]
     },
