@@ -214,6 +214,14 @@ export const DEFAULT_NAV_ITEMS: {title: string, icon?: string | NbIconConfig, it
                 url: 'https://snyssen.be/jellyfin/'
             },
             {
+                title: 'Kodi',
+                icon: {
+                    icon: 'tv',
+                    pack: 'fas'
+                },
+                url: 'http://192.168.1.14'
+            },
+            {
                 title: 'McMyAdmin',
                 icon: {
                     icon: 'cubes',
