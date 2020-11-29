@@ -13,7 +13,7 @@ export class SearchBarComponent {
 
   search(): void {
     if (this.searchTerms) {
-      window.location.href = 'https://duckduckgo.com/?q=' + this.searchTerms;
+      window.location.href = 'https://duckduckgo.com/?q=' + encodeURIComponent(this.searchTerms);
     }
   }
 }
